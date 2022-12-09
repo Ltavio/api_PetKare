@@ -19,8 +19,15 @@ class PetSerializer(serializers.Serializer):
         choices=InformedSex.choices,
         default=InformedSex.NOT_INFORMED,
     )
+    traits_count = serializers.SerializerMethodField()
     group = GroupSerializer()
     traits = TraitSerializer(many=True)
+
+    def get_traits_count(self, obj: Pet) -> int:
+
+        traits = Trait.objects.filter(pets=obj.id)
+
+        return len(traits)
 
     def create(self, validated_data: dict):
 

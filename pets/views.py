@@ -26,6 +26,13 @@ class PetViews(APIView):
 
 
 class PetDetailViews(APIView):
+    def get(self, request: Request, pet_id: int) -> Response:
+        pet = get_object_or_404(Pet, id=pet_id)
+
+        pet_serializer = PetSerializer(pet)
+
+        return Response(pet_serializer.data, status.HTTP_200_OK)
+
     def patch(self, request: Request, pet_id: int) -> Response:
         pet = get_object_or_404(Pet, id=pet_id)
 
@@ -36,3 +43,10 @@ class PetDetailViews(APIView):
         pet_serializer.save()
 
         return Response(pet_serializer.data, status.HTTP_200_OK)
+
+    def delete(self, request: Request, pet_id: int) -> Response:
+        pet = get_object_or_404(Pet, id=pet_id)
+
+        pet.delete()
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
