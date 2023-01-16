@@ -26,33 +26,28 @@ Nesse projeto foi desenvolvido uma aplicação para ajudar donos de PetShop a gu
             <th>Método</th>
             <th>Endpoint</th>
             <th>Objetivo</th>
-            <th>Permissão</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>POST</td>
-            <td>api/users/</td>
-            <td>Criação de usuário</td>
-            <td>Livre para acesso</td>
+            <td>api/pets/</td>
+            <td>Cadastrar pet</td>
         </tr>
         <tr>
             <td>GET</td>
-            <td>users/int:user_id/</td>
-            <td>List perfil do usuário</td>
-            <td>Somente autenticado</td>
-        </tr>
-        <tr>
-            <td>POST</td>
-            <td>api/users/login/</td>
-            <td>Autenticar as credenciais de um usuário e retornar um token de acesso JWT.</td>
-            <td>Livre para acesso</td>
+            <td>api/pets/</td>
+            <td>Listar pets</td>
         </tr>
         <tr>
             <td>GET</td>
-            <td>api/movies/</td>
-            <td>List movies armazenados</td>
-            <td>Livre para acesso</td>
+            <td>api/pets/int:pet_id/</td>
+            <td>Filtragem de pet</td>
+        </tr>
+        <tr>
+            <td>PATCH</td>
+            <td>api/pets/int:pet_id/</td>
+            <td>Atualização de pet</td>
         </tr>
         <tr>
             <td>POST</td>
@@ -61,22 +56,9 @@ Nesse projeto foi desenvolvido uma aplicação para ajudar donos de PetShop a gu
             <td>Somente usuários na categoria employee</td>
         </tr>
         <tr>
-            <td>GET</td>
-            <td>api/movies/int:movie_id/</td>
-            <td>List movie especifico</td>
-            <td>Livre para acesso</td>
-        </tr>
-        <tr>
             <td>DELETE</td>
-            <td>api/movies/int:movie_id/</td>
-            <td>Deletar movie</td>
-            <td>Somente usuários na categoria employee</td>
-        </tr>
-        <tr>
-            <td>POST</td>
-            <td>api/movies/int:movie_id/orders/</td>
-            <td>Comprar movie</td>
-            <td>Somente autenticado</td>
+            <td>api/pets/<pet_id>/</td>
+            <td>Deleção de pet</td>
         </tr>
     </tbody>
 </table>
@@ -85,8 +67,3 @@ Nesse projeto foi desenvolvido uma aplicação para ajudar donos de PetShop a gu
 ````
 python manage.py runserver
 ````
-
-- Rodando os testes:
-```
-pytest --testdox -vvs
-```
