@@ -53,7 +53,6 @@ Nesse projeto foi desenvolvido uma aplicação para ajudar donos de PetShop a gu
             <td>POST</td>
             <td>api/movies/</td>
             <td>Cadastrar movie</td>
-            <td>Somente usuários na categoria employee</td>
         </tr>
         <tr>
             <td>DELETE</td>
